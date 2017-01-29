@@ -1,0 +1,7 @@
+
+<h2 class="main1">welcome to edit page of <%=@user.firstname%></h2>
+<%= form_for [:admin,@user] do |f| %>
+
+	<%=render :partial =>"shared/form",:locals=> {:f=>f}%>
+<% end %>
+ <%= link_to 'home page',admin_users_path %>

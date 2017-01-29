@@ -1,0 +1,40 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/shaiju/my_works/training/demo_app_with_travis_ci/app/helpers/admin/users_helper.rb": [
+        1,
+        null
+      ],
+      "/home/shaiju/my_works/training/demo_app_with_travis_ci/app/helpers/application_helper.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/shaiju/my_works/training/demo_app_with_travis_ci/app/models/designation.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/shaiju/my_works/training/demo_app_with_travis_ci/app/models/role.rb": [
+        1,
+        1,
+        null,
+        1,
+        13,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1438174990
+  }
+}

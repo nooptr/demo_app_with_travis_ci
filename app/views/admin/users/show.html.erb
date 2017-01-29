@@ -1,0 +1,98 @@
+<h2 align="center">Welcome <%=@user.firstname%></h2>
+<div class="form-group">
+  <table class="show1" align="center" >
+    <tr>
+      <td ><%="First Name"%></td>
+      <td class ="form-control"><%= @user.firstname%></td>
+    </tr>
+    <tr>
+      <td><%= "Middle Name "%></td>
+      <td class ="form-control"><%= @user.middlename %></td>
+    </tr>
+    <tr>
+      <td><%="lastname" %></td>
+      <td class ="form-control"><%=@user.lastname%></td>
+    </tr>
+    <tr>
+      <td> <%= "emailid"%></td>
+      <td class ="form-control"> <%=@user.email%></td>
+    </tr>
+    <tr>
+      <td>  <%="user name" %></td>
+      <td class ="form-control"> <%=@user.username%></td>
+    </tr>
+    <tr>
+      <td>  <%="employee id" %></td>
+      <td class ="form-control"> <%= @user.empid%></td>
+    </tr>
+    <td></td>
+    <tr>
+      <td><%="Date Of Birth"%></td>
+      <td class ="form-control"> <%=@user.dob.strftime('%B %d, %Y')%></td>
+    </tr>
+    <tr>
+      <td><%="timezone"%></td>
+      <td class ="form-control"><%=@user.timezone%></td>
+    </tr>
+    <td></td>
+    <tr>
+      <td><%="date of joing"%></td>
+      <td class ="form-control"> <%= @user.doj.strftime('%B %d, %Y')%></td>
+    </tr>
+    <td></td>
+    <tr>
+      <td><%="Gender" %></td>
+      <td class ="form-control"> <%= @user.gender%></td>
+    </tr>
+    <td></td>
+    <tr>
+      <td><%="Designation" %></td> 
+      <td class ="form-control"> <%=@user.designation.try(:name)%></td>
+    </tr>
+    <tr>
+      <td><%="Roles" %></td> 
+      <td class ="form-control"> <%=@user.role.try(:name)%></td>
+    </tr>
+    <td></td>
+    <tr>
+      <td><%="Education"%><br></td> 
+      <td class ="form-control"> <%=@user.education%></td>
+    </tr>
+    <td></td>
+    <tr>
+      <td><%="Comments"%></td> 
+      <td class ="form-control">  <%=@user.comments%></td>
+    </tr>
+    <tr>
+      <td><%="locked status"%></td> 
+      <td class ="form-control">  <%=@user.locked%></td>
+    </tr>
+    <tr>
+      <td><%="reason"%></td> 
+      <td class ="form-control">  <%=@user.reason%></td>
+    </tr>
+    <tr>
+      <td><%="failed attempts"%></td> 
+      <td class ="form-control">  <%=@user.failed_attempts%></td>
+    </tr>
+    <tr>
+      <td><%="phone"%></td> 
+      <td class ="form-control">  <%=@user.phone%></td>
+    </tr>
+    <tr>
+      <td><%="image"%></td> 
+      <td><%= image_tag @user.image.url(:medium).to_s%></td>
+    </tr>
+    <tr>
+      <td><%="Previous Experiance"%></td> 
+      <td class ="form-control"> <%=@user.previous_experiance%></td>
+    </tr>
+    <tr>
+        <td><%="Total Experiance"%></td> 
+        <td class ="form-control"> <%=@user.calculate_total_experiance%></td>
+    </tr>
+      <tr>
+      <td></td><td class ="form-control" ><%= button_to "back to home page",admin_users_path,:method=>"get" %></td>
+    </tr>
+  </table>
+</div>

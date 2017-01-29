@@ -1,0 +1,43 @@
+<h2 align="center">welcome  <%=current_user.firstname%> to Admin Page</h2>
+<table class="table table-striped">
+  <thead>
+    <div class ='bg-danger'><h4> <%= flash[:notice] %> </h4>
+   <h4> <%= flash[:error] %> </h4></div>
+   <tr>
+      <th> image </th>
+      <th> first name</th>
+      <th> last name</th>
+      <th> emailid </th>
+      <th> employee id</th>
+      <th> User Name</th>
+      <th> Date of Joining</th>
+      <th>Gender</th>
+      <th>Designation</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= paginate @users %>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%=image_tag user.image.url(:thumb).to_s%></td> 
+        <td><%= user.firstname %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.email%></td>
+        <td><%=user.empid%></td>
+        <td><%= user.username %></td>
+        <td><%#= user.doj.strftime('%B %d, %Y').try(:doj)%></td>
+        <td><%= user.gender%></td>
+        <td><%= user.designation.try(:name) %></td>
+        <td>
+        <td><%= button_to "unlock", admin_user_unlock_path(user) ,:method => "get" %></td>
+        <td><%= button_to "edit", edit_admin_user_path(user) ,:method => "get" %></td>
+        <td><%= button_to "show", admin_user_path(user),:method => "get" %></td>
+        <td> <%= button_to'delete',admin_user_path(user),:confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <td></td><td></td><td></td><td></td><td></td>
+    <td><%= button_to 'create new user',new_admin_user_path ,:method => "get" %></td>
+</table>
+
+    

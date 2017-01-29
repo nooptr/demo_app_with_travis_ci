@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  	<title>EBOApp</title>
+  		<link rel="stylesheet" media="all" href="/assets/application.css" data-turbolinks-track="true" />
+  		<script src="/assets/application.js" data-turbolinks-track="true"></script>
+  		
+	</head>
+	<body>
+  		<p class="alert alert-success">Signed in successfully.</p>
+
+		<p class="navbar-text pull-right">
+  Logged in as <strong>bava@gmail.com</strong>.
+
+    <a class="navbar-link" rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
+
+	
+		<h2 align="center">welcome  Test to Admin Page</h2>
+<table class="table table-striped">
+  <thead>
+    <div class ='bg-danger'><h4> Signed in successfully. </h4>
+   <h4>  </h4></div>
+   <tr>
+      <th> image </th>
+      <th> first name</th>
+      <th> last name</th>
+      <th> emailid </th>
+      <th> employee id</th>
+      <th> User Name</th>
+      <th> Date of Joining</th>
+      <th>Gender</th>
+      <th>Designation</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+      <tr>
+        <td><img src="/assets/thumb_default.png" alt="Thumb default" /></td> 
+        <td>Test</td>
+        <td>T</td>
+        <td>bava@gmail.com</td>
+        <td>123</td>
+        <td>test123</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+        <td><form class="button_to" method="get" action="/admin/users/1/unlock"><input type="submit" value="unlock" /></form></td>
+        <td><form class="button_to" method="get" action="/admin/users/1/edit"><input type="submit" value="edit" /></form></td>
+        <td><form class="button_to" method="get" action="/admin/users/1"><input type="submit" value="show" /></form></td>
+        <td> <form class="button_to" method="post" action="/admin/users/1"><input type="hidden" name="_method" value="delete" /><input confirm="Are you sure?" type="submit" value="delete" /></form></td>
+      </tr>
+  </tbody>
+  <td></td><td></td><td></td><td></td><td></td>
+    <td><form class="button_to" method="get" action="/admin/users/new"><input type="submit" value="create new user" /></form></td>
+</table>
+
+    
+	</body>
+</html>

@@ -1,0 +1,7 @@
+I"q(function() {
+  $(document).ready(function() {
+    return alert("page has loaded5!");
+  });
+
+}).call(this);
+:ET

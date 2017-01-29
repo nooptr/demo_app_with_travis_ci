@@ -1,0 +1,86 @@
+<h2 class = "center">Welcome <%=@user.firstname%> <area></area></h2>
+  <div class="form-group">
+  <div class="center">
+    <table class="table_padding">
+      <tr>
+        <td ><%="First Name"%></td>
+        <td class ="form-control"><%= @user.firstname%></td>
+      </tr>
+      <tr>
+        <td><%= "Middle Name "%></td>
+        <td class ="form-control"><%= @user.middlename %></td>
+      </tr>
+      <tr>
+        <td><%="Last Name" %></td>
+        <td class ="form-control"><%=@user.lastname%></td>
+      </tr>
+      <tr>
+        <td> <%= "Email Id"%></td>
+        <td class ="form-control"> <%=@user.email%></td>
+      </tr>
+      <tr> 
+        <td>  <%="User name" %></td>
+        <td class ="form-control"> <%=@user.username%></td>
+      </tr>
+      <tr>
+        <td>  <%="Employee Id" %></td>
+        <td class ="form-control"> <%= @user.empid%></td>
+      </tr>
+      <td></td>
+      <tr>
+        <td><%="Date Of Birth "%></td>
+        <td class ="form-control"> <%=@user.dob%></td>
+      </tr>
+      <tr>
+        <td><%="Time zone"%></td>
+        <td class ="form-control"><%=@user.timezone%></td>
+      </tr>
+      <td></td>
+      <tr>
+        <td><%="Date of Joing"%></td>
+        <td class ="form-control"> <%= @user.doj%></td>
+      </tr>
+      <td></td> 
+      <tr>
+        <td><%="Gender" %></td>
+        <td class ="form-control"> <%= @user.gender%></td>
+      </tr>
+      <td></td>
+      <tr>
+        <td><%="Designation" %></td> 
+        <td class ="form-control"> <%=@user.designation.try(:name)%></td>
+      </tr>
+        <td></td>
+      <tr>
+        <td><%="Education"%><br></td> 
+        <td class ="form-control"> <%=@user.education%></td>
+      </tr>
+      <td></td>
+      <tr>
+        <td><%="Comments"%></td> 
+        <td class ="form-control">  <%=@user.comments%></td>
+      </tr>
+      <tr>
+        <td><%="phone"%></td> 
+        <td class ="form-control">  <%=@user.phone%></td>
+      </tr>
+      <tr>
+        <td><%="Image"%></td> 
+        <td><%= image_tag @user.image.url(:medium)%></td>
+      </tr>
+      <tr>
+        <td><%="Previous Experiance"%></td> 
+        <td class ="form-control"> <%=@user.previous_experiance%></td>
+      </tr>
+      <tr>
+        <td><%="Total Experiance"%></td> 
+        <td class ="form-control"> <%=@user.calculate_total_experiance%></td>
+      </tr>
+
+      <tr class="center">
+        <td ><%= button_to "Edit Details", edit_user_registration_path(@user) ,:method => "get" %></td>
+      </tr>
+      <td></td>
+    </table>
+  </div>  
+</div>

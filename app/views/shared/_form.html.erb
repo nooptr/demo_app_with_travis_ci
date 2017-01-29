@@ -1,0 +1,142 @@
+ <div class="tb">
+    <div class="form-group" >
+      <table align="center">
+        <tr>
+            <td id="preview_image"><%= image_tag(@user.image_url(:medium),id:"display",height:"100",width: "100") %></td>
+            
+            <td><%= f.check_box :remove_image if @user.image? %>
+          <%= f.label "remove the image?"if @user.image? %></td>
+          </tr>
+          <tr>
+          <td><%= f.label :image, "Upload your profile picture" %></td>
+          <td><%= f.file_field :image ,class:"form-control",:onchange => "readURL(this)",id:"imgfile"%></td>
+        </tr>
+        <tr>
+          <td><%= f.label "firstname" %></td>
+          <td><%= f.text_field :firstname,  :class =>"form-control", :required=>true,:placeholder =>"first name"%></td>
+          <td class="error"><%= error_list(@user,:firstname)%></td>
+          <td></td>
+        </tr>
+          <td></td>
+          <tr>
+          <td><%= f.label "middlename" %></td>
+          <td><%= f.text_field :middlename, :class =>"form-control", :placeholder =>"middle name" %></td>
+        </tr>
+          <td></td>
+        <tr>
+          <td><%= f.label "last name" %></td>
+          <td><%= f.text_field :lastname, :required=>true,:class =>"form-control", :placeholder =>"last name"%></td>
+          <td class="error"><%= error_list(@user,:lastname)%></td>
+        </tr>
+          <td></td>
+        <tr>
+          <td> <%= f.label "email id" %></td>
+          <td> <%= f.text_field :email ,:pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}',:required=>true,:class =>"form-control", :placeholder =>"email id"%></td>
+          <td class="error"> <%= error_list(@user,:email)%></td>
+        </tr>
+          <td></td>
+        <tr>
+          <td><%= f.label "user name" %></td>
+          <td><%= f.text_field :username, :required=>true,:class =>"form-control", :placeholder =>"login id"%></td>
+          <td class="error"> <%= error_list(@user,:username)%></td>
+        </tr>
+        <td></td>
+        <% if action_name == "new" %>
+          <tr>
+            <td><%= f.label "password" %></td>
+            <td> <%= f.password_field :password, :class =>"form-control", :placeholder =>"password"%></td>
+            <td class="error"> <%= error_list(@user,:password)%></td>
+          </tr>
+          <tr>
+            <td>  <%= f.label "confirm password"%></td>
+            <td> <%= f.password_field :password_confirmation, :class =>"form-control", :placeholder =>"confirm password"%></td>
+          </tr>
+          <td></td>
+          <tr>
+            <td><%= f.label "Previous Experiance"%>&nbsp 
+          <%= f.label "year"%></td>
+            <td><%= f.select :previous_experiance_year, options_for_select([*0..10 ],0)%></td>
+            <td><%= f.label "months"%></td>
+            <td><%= f.select :previous_experiance_month, options_for_select([*0..10 ])%></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>  <%= f.label "employee id" %></td>
+          <td> <%= f.text_field :empid, :required=>true,:class =>"form-control", :placeholder =>"employee id"%></td>
+          <td class="error"> <%= error_list(@user,:empid)%></td>
+        </tr>
+        <td></td>
+        <tr>
+          <td> <%=f.label "date of birth"%></td>
+          <td><%= f.date_field :dob, class: 'datepicker',:placeholder =>"Date Of Birth",:class =>"form-control" %></td>
+        </tr>
+        <td></td>
+        <tr>
+          <td><%=f.label "Time Zone"%></td>
+          <td><%=f.time_zone_select("timezone", nil, default: "Pacific Time (US & Canada)", include_blank: false)%></td>
+        </tr>
+        <td></td>
+        <tr>
+          <td><%= f.label "Date Of Joining"%></td>
+          <td><%= f.date_field :doj, class: 'datepicker',:class =>"form-control",:placeholder =>"Date Of Joining" %></td>
+        </tr> 
+        <td></td>
+        <tr>
+          <td><%= f.label "Gender" %></td>
+          <td> <%= f.select :gender, ["male","female","others"]%></td>
+        </tr>
+          <td></td>
+        <tr>
+          <td><%= f.label "designation" %></td> 
+          <td> <%= f.select(:designation_id ,@designations=Designation.all.map{|d|[d.name,d.id]}) %></td>
+        </tr>
+         <td></td>
+        <tr>
+          <td><%= f.label "Education"%><br></td> 
+          <td> <%= f.text_area :education,:class =>"form-control",:placeholder =>"education"%></td>
+        </tr>
+         <% if params[:controller] == "admin/users" %>
+          <tr>
+            <td><%= f.label "roles" %></td> 
+            <td> <%= f.select(:role_id ,@roles=Role.all.map{|r|[r.name,r.id]}) %></td>
+          </tr>
+          <tr>
+          <td></td>
+            <td><%=f.radio_button :locked,'locked' %>locked</td>
+            <td><%= f.radio_button :locked,'active',:checked => true %>active</td>
+          </tr>
+          <tr  class="deactivated">
+            <td><%= f.label "Deactivated date"%></td>
+            <td><%= f.date_select("deactivated_date", order: [ :month, :day, :year], :start_year => 1990, :end_year => 2020,  include_blank: 'None')%></td>
+          </tr> 
+          <tr class="deactivated">
+            <td><%= f.label "reason" %>&nbsp:</td> 
+            <td><%= f.select :reason, ["no longer employee with us","long medical leave","absconding"],  include_blank: ''%></td>
+          </tr>
+        <% end %>
+        <td></td>
+        <tr>
+          <td><%= f.label "Comments"%></td> 
+          <td><%= f.text_area :comments,:class =>"form-control",:placeholder =>"comments"%></td>
+        </tr>
+        <td></td>
+        <tr>
+          <td><%= f.label "work phone" %>&nbsp:</td> 
+          <td><%= f.text_field :phone, :class =>"form-control", :placeholder =>"enter phone number"%></td>
+          <td class="error"><%=error_list(@user,:phone)%></td>
+        </tr>
+        <% if action_name == "new" or action_name == "create" or action_name== "edit"%>
+          <tr>
+            <td><%= recaptcha_tags %></td>
+          </tr>
+        <%end%>
+        <tr>
+          <td></td>
+          <td><%= f.submit  %></td>
+          <td><%= button_tag "Reset", type: :reset %></td>
+        </tr>
+      </table>
+    </div>
+  </div>    
+
+        

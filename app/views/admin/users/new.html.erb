@@ -1,0 +1,9 @@
+<h2 class="main1">welcome to  registration page</h2>
+<%= form_for [:admin,@user] do |f| %>
+	<%=render :partial => "shared/form",:locals=> {:f=>f}%>
+	<% end %>
+<table  align="center">
+	<tr>
+		<td></td><td></td><td><%= button_to "back ",  admin_users_path, :method => "get" %></td>
+	</tr>
+</table> 
